@@ -14,6 +14,7 @@
 5. Sign in to your Azure Account by clicking Sign in to Azure…
     >  If you don't already have an Azure Account, click "Create a Free Azure Account" or you can [try Azure for free](https://code.visualstudio.com/tryappservice/?utm_source=appservice-extension)
 
+
 ### Deploy
 
 Once you are signed in to your Azure account and you have your app open in Visual
@@ -41,9 +42,17 @@ Once the deployment completes, click **Browse Website** in the prompt to view yo
 
 > The URL that **Browse Website** above leads you to is the URL for the new proxy instance which will be needed in next steps. We'll refer to this as the Proxy URL below.
 
-### Proxy 
+### Add a Storage Account
 
-Now that there's a new Azure account, we'll need to update this proxy to reflect that.
+I kept the defaults but these settings are probably more up to the powers at be.
+
+- Adding storage
+![Shot of azure storage adding](README/storageadd.png)
+
+- Example of storage account
+![Shot of azure storage built against](README/storagebuild.png)
+
+Now that there's a new Storage account, we'll need to update this proxy to reflect that.
 
 There's a [config.json](config.json) file for anything that may change. This is where the Azure Account name (1), key (2) and secret (3) are stored.
 
@@ -86,6 +95,12 @@ Uses Salesforce Id as container name for data structure but...
 
 Azure containers must be lowercase so LWC has logic to handle trasitions to/from lowercase with dash before capitals: 123abCdefGH <--> 123ab-cdef-g-h
 
+If uploaded from Salesforce for a record with the Id of 123abCdefGH and the filenames of example.pdf and foo.pdf, the structure would resemble:
+
+Storage Account Name
+- |-> 123ab-cdef-g-h
+    - |-> example.pdf
+    - |-> foo.pdf
 
 ### Normal Install (via local or remote terminal)
 
@@ -97,4 +112,4 @@ Azure containers must be lowercase so LWC has logic to handle trasitions to/from
 
 ---
 
-@[Jamie](mailto:jamie.smith@coastalcloud.us)
+Email [Jamie](mailto:jamie.smith@coastalcloud.us)
